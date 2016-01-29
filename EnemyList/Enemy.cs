@@ -11,44 +11,22 @@ namespace GlobalGameJam2016.EnemyList
     {
         public float Health { get; protected set; }
         public int Speed { get; protected set; }
-        private int range;
+        public bool isEasy;
 
-        public Enemy(int width, int height , string hitBoxName = "auto") : base (width,height,true,hitBoxName)
+        public Enemy(int width, int height ,  bool isEasy, string hitBoxName = "auto") : base (width,height,true,hitBoxName)
         {
-            Health = 100;
+            
             Speed = 100;
+            this.isEasy = isEasy;
         }
 
         // da spostare in bullet
-        public void GetDamage()
-        {
-            if(HasCollisions())
-            {
-                if (range == 1) // Easy
-                {
-                    Health -= 100; // sistemare variabili
-                }
-                else if (range == 2) // Medium 
-                {
-                    Health -= 50;
-                }
-                else if (range == 3) // Boss
-                {
-                    Health -= 25;
-                }
-            }
-        }
+        
 
         public virtual void Moviment()
         {
             
         }
-
-
-
-        
-        
-
         
     }
 }

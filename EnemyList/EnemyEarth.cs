@@ -10,9 +10,16 @@ namespace GlobalGameJam2016.EnemyList
 {
     class EnemyEarth : Enemy
     {
-        public EnemyEarth(Engine engine, int width, int height) : base(width, height, "Enemy_Earth")
+        public EnemyEarth(Engine engine, int width, int height, bool isEasy) : base(width, height, isEasy, "Enemy_Earth")
         {
-
+            if(isEasy)
+            {
+                Health = 1;
+            }
+            else
+            {
+                Health = 2;
+            }
         }
 
         public override void Start()
