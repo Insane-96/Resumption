@@ -11,7 +11,7 @@ namespace GlobalGameJam2016.EnemyList
     {
         public float Health { get; protected set; }
         public int Speed { get; protected set; }
-        public bool isEasy;
+        private bool isEasy;
 
         public Enemy(int width, int height ,  bool isEasy, string hitBoxName = "auto") : base (width,height,true,hitBoxName)
         {
@@ -32,6 +32,7 @@ namespace GlobalGameJam2016.EnemyList
         {
             
         }
+        
         
     }
 }

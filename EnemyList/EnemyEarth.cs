@@ -10,9 +10,9 @@ namespace GlobalGameJam2016.EnemyList
 {
     class EnemyEarth : Enemy
     {
-        public EnemyEarth(Engine engine, int width, int height, bool isEasy) : base(width, height, isEasy, "Enemy_Earth")
+        public EnemyEarth(int width, int height, bool isEasy, string hitBoxName) : base(width, height, isEasy, hitBoxName)
         {
-            if(isEasy)
+            if (isEasy)
             {
                 Health = 1;
             }
@@ -29,6 +29,11 @@ namespace GlobalGameJam2016.EnemyList
         public override void Movement()
         {
             base.Movement();
+            X += Speed * Engine.DeltaTime;
+            if(HasCollisions())
+            {
+                X *= -1;
+            }
         }
         public override void Update()
         {
@@ -36,6 +41,61 @@ namespace GlobalGameJam2016.EnemyList
             Movement();
         }
 
+        class EnemyEarthEasy : EnemyEarth
+        {
+            Player player;
+            public EnemyEarthEasy(Player player,  Engine engine, int width, int height) : base(width, height, true, "Enemy_Blob")
+            {
+                this.player = player;
+               // Utils.LoadAssets(engine,);
+            }
 
+            public override void Start()
+            {
+                base.Start();
+            }
+
+            public override void Update()
+            {
+                base.Update();
+            }
+
+            public override void Movement()
+            {
+                base.Movement();
+                
+            }
+        }
+
+        class EnemyEarthMedium : EnemyEarth
+        {
+            Player player;
+            public EnemyEarthMedium(Player player, Engine engine, int width, int height) : base(width, height, false, "Enemy_Mole")
+            {
+                this.player = player;
+                // Utils.LoadAssets(engine,);
+            }
+
+            public override void Start()
+            {
+                //create animation
+                base.Start();
+            }
+
+            public override void Update()
+            {
+                base.Update();
+            }
+
+            public override void Movement()
+            {
+                base.Movement();
+                
+                if (HasCollisions())// aggiungere vector
+                {
+                    // destroy block
+                }
+            }
+        }
     }
 }
