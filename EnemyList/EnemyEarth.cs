@@ -70,6 +70,7 @@ namespace GlobalGameJam2016.EnemyList
         class EnemyEarthMedium : EnemyEarth
         {
             Player player;
+
             public EnemyEarthMedium(Player player, Engine engine, int width, int height) : base(width, height, false, "Enemy_Mole")
             {
                 this.player = player;
