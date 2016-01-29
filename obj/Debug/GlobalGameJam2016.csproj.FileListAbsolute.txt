@@ -14,3 +14,13 @@ C:\Users\Alberto\Documents\Visual Studio 2015\Projects\GlobalGameJam2016\bin\Deb
 C:\Users\Alberto\Documents\Visual Studio 2015\Projects\GlobalGameJam2016\bin\Debug\OpenTK.xml
 C:\Users\Alberto\Documents\Visual Studio 2015\Projects\GlobalGameJam2016\obj\Debug\GlobalGameJam2016.exe
 C:\Users\Alberto\Documents\Visual Studio 2015\Projects\GlobalGameJam2016\obj\Debug\GlobalGameJam2016.pdb
+C:\Users\Roberto\Desktop\GlobalGameJam2016\bin\Debug\GlobalGameJam2016.exe.config
+C:\Users\Roberto\Desktop\GlobalGameJam2016\obj\Debug\GlobalGameJam2016.exe
+C:\Users\Roberto\Desktop\GlobalGameJam2016\obj\Debug\GlobalGameJam2016.pdb
+C:\Users\Roberto\Desktop\GlobalGameJam2016\bin\Debug\GlobalGameJam2016.exe
+C:\Users\Roberto\Desktop\GlobalGameJam2016\bin\Debug\GlobalGameJam2016.pdb
+C:\Users\Roberto\Desktop\GlobalGameJam2016\bin\Debug\aiv-fast2d.pdb
+C:\Users\Roberto\Desktop\GlobalGameJam2016\bin\Debug\aivengine.pdb
+C:\Users\Roberto\Desktop\GlobalGameJam2016\bin\Debug\NVorbis.xml
+C:\Users\Roberto\Desktop\GlobalGameJam2016\bin\Debug\OpenTK.xml
+C:\Users\Roberto\Desktop\GlobalGameJam2016\obj\Debug\GlobalGameJam2016.csprojResolveAssemblyReference.cache
