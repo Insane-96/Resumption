@@ -10,6 +10,8 @@ namespace GlobalGameJam2016
 	{
 		static void Main(string[] args)
 		{
+			Game.Init();
+			Game.Run();
 		}
 	}
 }

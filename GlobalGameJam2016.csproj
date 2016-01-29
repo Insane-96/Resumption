@@ -33,16 +33,29 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="aiv-fast2d">
+      <HintPath>..\aivengine-1\aivengine\bin\Debug\aiv-fast2d.dll</HintPath>
+    </Reference>
+    <Reference Include="aiv-vorbis">
+      <HintPath>..\aivengine-1\aivengine\bin\Debug\aiv-vorbis.dll</HintPath>
+    </Reference>
+    <Reference Include="aivengine">
+      <HintPath>..\aivengine-1\aivengine\bin\Debug\aivengine.dll</HintPath>
+    </Reference>
+    <Reference Include="NVorbis">
+      <HintPath>..\aivengine-1\aivengine\bin\Debug\NVorbis.dll</HintPath>
+    </Reference>
+    <Reference Include="OpenTK">
+      <HintPath>..\aivengine-1\aivengine\bin\Debug\OpenTK.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Net.Http" />
-    <Reference Include="System.Xml" />
+    <Reference Include="System.Drawing" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Game.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
