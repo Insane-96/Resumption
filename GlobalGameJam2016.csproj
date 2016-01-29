@@ -59,9 +59,11 @@
     <Compile Include="EnemyList\Enemy.cs" />
     <Compile Include="EnemyList\EnemyEarth.cs" />
     <Compile Include="Game.cs" />
-    <Compile Include="Player.cs" />
+    <Compile Include="KeyMap.cs" />
+    <Compile Include="PlayerList\Player.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utils.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

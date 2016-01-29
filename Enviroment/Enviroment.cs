@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GlobalGameJam2016
+namespace GlobalGameJam2016.Enviroment
 {
-    class Player
-    {
-        int health;
-    }
+	class Enviroment
+	{
+	}
 }
