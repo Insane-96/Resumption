@@ -10,7 +10,10 @@ namespace GlobalGameJam2016
 	static class Utils
 	{
 		private static Random r = new Random();
-		public static int Randomize(int n, int m) => r.Next(n, m);
+		public static int Randomize(int n, int m)
+		{
+			return r.Next(n, m);
+		}
 
 		public static void LoadAssets(Engine engine, string assetName, string pathName, int rows, int cols)
 		{

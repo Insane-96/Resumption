@@ -9,12 +9,12 @@ namespace GlobalGameJam2016.Enviroment
 {
 	class Enviroment:GameObject
 	{
-
+        public static float gravity;
 		public Enviroment()
 		{
-			
+            gravity = 10;
 		}
-
+        
 		public override void Start()
 		{
 			base.Start();
@@ -24,5 +24,6 @@ namespace GlobalGameJam2016.Enviroment
 		{
 			base.Update();
 		}
+
 	}
 }
