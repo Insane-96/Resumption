@@ -2,6 +2,7 @@
 using Aiv.Engine;
 using OpenTK;
 using GlobalGameJam2016.EnemyList;
+using GlobalGameJam2016.PlayerList;
 
 namespace GlobalGameJam2016
 {
@@ -16,7 +17,7 @@ namespace GlobalGameJam2016
 			Asset.BasePath = "../../assets/";
 
 			Utils.LoadAssets(engine, "playerDefault", "playerDefault.png", 1, 1);
-			Player player = new Player(64, 96, true, "playerDefault");
+			PlayerEarth player = new PlayerEarth(64, 96, true, "playerDefault");
 
 #if DEBUG
 			engine.debugCollisions = true;
