@@ -26,15 +26,14 @@ namespace GlobalGameJam2016.EnemyList
         {
             base.Start();
         }
-        public override void Moviment()
+        public override void Movement()
         {
-            base.Moviment();
+            base.Movement();
         }
         public override void Update()
         {
             base.Update();
-            Moviment();
-
+            Movement();
         }
 
 

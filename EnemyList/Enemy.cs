@@ -21,9 +21,14 @@ namespace GlobalGameJam2016.EnemyList
         }
 
         // da spostare in bullet
-        
 
-        public virtual void Moviment()
+        public override void Update()
+        {
+            base.Update();
+            if (Health == 0)
+                this.Destroy();
+        }
+        public virtual void Movement()
         {
             
         }
