@@ -1,2 +1,16 @@
 c:\users\alberto\documents\visual studio 2015\Projects\GlobalGameJam2016\bin\Debug\GlobalGameJam2016.exe.config
 C:\Users\Emanuele\Documents\Visual Studio 2013\Projects\GlobalGameJam2016\bin\Debug\GlobalGameJam2016.exe.config
+C:\Users\Alberto\Documents\Visual Studio 2015\Projects\GlobalGameJam2016\obj\Debug\GlobalGameJam2016.csprojResolveAssemblyReference.cache
+C:\Users\Alberto\Documents\Visual Studio 2015\Projects\GlobalGameJam2016\bin\Debug\GlobalGameJam2016.exe
+C:\Users\Alberto\Documents\Visual Studio 2015\Projects\GlobalGameJam2016\bin\Debug\GlobalGameJam2016.pdb
+C:\Users\Alberto\Documents\Visual Studio 2015\Projects\GlobalGameJam2016\bin\Debug\aiv-fast2d.dll
+C:\Users\Alberto\Documents\Visual Studio 2015\Projects\GlobalGameJam2016\bin\Debug\aiv-vorbis.dll
+C:\Users\Alberto\Documents\Visual Studio 2015\Projects\GlobalGameJam2016\bin\Debug\aivengine.dll
+C:\Users\Alberto\Documents\Visual Studio 2015\Projects\GlobalGameJam2016\bin\Debug\NVorbis.dll
+C:\Users\Alberto\Documents\Visual Studio 2015\Projects\GlobalGameJam2016\bin\Debug\OpenTK.dll
+C:\Users\Alberto\Documents\Visual Studio 2015\Projects\GlobalGameJam2016\bin\Debug\aiv-fast2d.pdb
+C:\Users\Alberto\Documents\Visual Studio 2015\Projects\GlobalGameJam2016\bin\Debug\aivengine.pdb
+C:\Users\Alberto\Documents\Visual Studio 2015\Projects\GlobalGameJam2016\bin\Debug\NVorbis.xml
+C:\Users\Alberto\Documents\Visual Studio 2015\Projects\GlobalGameJam2016\bin\Debug\OpenTK.xml
+C:\Users\Alberto\Documents\Visual Studio 2015\Projects\GlobalGameJam2016\obj\Debug\GlobalGameJam2016.exe
+C:\Users\Alberto\Documents\Visual Studio 2015\Projects\GlobalGameJam2016\obj\Debug\GlobalGameJam2016.pdb
