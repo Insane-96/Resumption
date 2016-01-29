@@ -1,1 +1,2 @@
 c:\users\alberto\documents\visual studio 2015\Projects\GlobalGameJam2016\bin\Debug\GlobalGameJam2016.exe.config
+C:\Users\Emanuele\Documents\Visual Studio 2013\Projects\GlobalGameJam2016\bin\Debug\GlobalGameJam2016.exe.config
