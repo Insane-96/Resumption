@@ -13,10 +13,10 @@ namespace GlobalGameJam2016
 		public static PlayerEarth player;
 		public static EnemyEarthMedium enemy;
 		public static EnviromentEarth enviromentEarth;
-        //public static EnemyAirEasy enemyAir;
-		
+		//public static EnemyAirEasy enemyAir;
 
-        public static void Init()
+
+		public static void Init()
 		{
 			engine = new Engine("Game", 1280, 720, 60, true);
 
@@ -31,16 +31,16 @@ namespace GlobalGameJam2016
 			//         enemyAir = new EnemyAirEasy(engine, 64, 96);
 
 			EnemyEarthEasy[] enemyEarths = new EnemyEarthEasy[Utils.Randomize(30, 31)];
-	        for (int i = 0; i < enemyEarths.Length; i++)
-	        {
-		        int rX, rY;
-		        do
-		        {
-			        rX = Utils.Randomize(1, 14);
-			        rY = Utils.Randomize(1, 30);
-		        } while (enviromentEarth.tiles[Utils.GetPos(rX, rY, 14)].tileType != TileType.None);
+			for (int i = 0; i < enemyEarths.Length; i++)
+			{
+				int rX, rY;
+				do
+				{
+					rX = Utils.Randomize(1, 14);
+					rY = Utils.Randomize(1, 30);
+				} while (enviromentEarth.tiles[Utils.GetPos(rX, rY, 14)].tileType != TileType.None);
 				enemyEarths[i] = new EnemyEarthEasy(engine, 64, 40, rX * 96 - 32, rY * 96);
-	        }
+			}
 
 			Utils.LoadAssets(engine, "background", "background.png", 1, 1);
 			enviromentEarth = new EnviromentEarth(1280, 720);
@@ -54,19 +54,19 @@ namespace GlobalGameJam2016
 
 			engine.SpawnObject("player", player);
 			//engine.SpawnObject("enemy", enemy);
-	        for (int i = 0; i < enviromentEarth.tiles.Length; i++)
-	        {
-		        engine.SpawnObject("wall" + i, enviromentEarth.tiles[i]);
-	        }
-	        for (int i = 0; i < enemyEarths.Length; i++)
-	        {
-		        engine.SpawnObject("enemy" + Utils.Randomize(0, Int32.MaxValue), enemyEarths[i]);
-	        }
+			for (int i = 0; i < enviromentEarth.tiles.Length; i++)
+			{
+				engine.SpawnObject("wall" + i, enviromentEarth.tiles[i]);
+			}
+			for (int i = 0; i < enemyEarths.Length; i++)
+			{
+				engine.SpawnObject("enemy" + Utils.Randomize(0, Int32.MaxValue), enemyEarths[i]);
+			}
 			//engine.SpawnObject("enemyAir", enemyAir);
 
-        }
+		}
 
-        public static void Run()
+		public static void Run()
 		{
 			engine.Run();
 		}
