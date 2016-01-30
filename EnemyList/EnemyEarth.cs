@@ -110,7 +110,7 @@ namespace GlobalGameJam2016.EnemyList
 				if (obj.OtherHitBox.StartsWith("Wall"))
 				{
 					Tile otherTile = (Tile)obj.Other;
-					Game.enviromentEarth.tiles[Utils.GetPos((int)otherTile.X / 80, (int)otherTile.Y / 80, 16)].tileType = TileType.None;
+					Game.enviromentEarth.tiles[Utils.GetPos((int)(otherTile.X + this.Width / 2) / 80, (int)(otherTile.X + this.Width / 2) / 80, 16)].tileType = TileType.None;
 				}
 			}
 		}
@@ -118,7 +118,7 @@ namespace GlobalGameJam2016.EnemyList
 		public override void Movement()
 		{
 			base.Movement();
-			if (this.Y == player.Y)
+			if ((int)this.Y > (int)player.Y && (int)this.Y < (int)player.Y + player.Height)
 			{
 				if (player.X > this.X)
 					move = CheckMovement.RightMovement;
