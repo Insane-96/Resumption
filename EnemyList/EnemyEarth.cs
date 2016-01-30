@@ -52,7 +52,7 @@ namespace GlobalGameJam2016.EnemyList
 			}
             lastY = Y;
             Y += 100 * Engine.DeltaTime;
-            if (CheckCollisions().Count == 0)
+            if (CheckCollisions().Count > 0)
             {
                 Y = lastY;
             }
