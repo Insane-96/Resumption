@@ -11,10 +11,12 @@ namespace GlobalGameJam2016
 		private static Engine engine;
 		public static PlayerEarth player;
 		public static EnemyEarthMedium enemy;
+        public static EnemyAirEasy enemyAir;
 
-		public static void Init()
+
+        public static void Init()
 		{
-			engine = new Engine("Game", 1280, 720, 60, true);
+			engine = new Engine("Game", 1280, 720, 60, false);
 
 			Asset.BasePath = "../../assets/";
 
@@ -22,16 +24,19 @@ namespace GlobalGameJam2016
 			player = new PlayerEarth(64, 96, true, "playerDefault");
 			
 			enemy = new EnemyEarthMedium(engine, 64, 96);
+            enemyAir = new EnemyAirEasy(engine, 64, 96);
 
 #if DEBUG
-			engine.debugCollisions = true;
+            engine.debugCollisions = true;
 #endif
 
 			engine.SpawnObject("player", player);
 			engine.SpawnObject("enemy", enemy);
-		}
+			//engine.SpawnObject("enemyAir", enemyAir);
 
-		public static void Run()
+        }
+
+        public static void Run()
 		{
 			engine.Run();
 		}
