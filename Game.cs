@@ -9,7 +9,7 @@ namespace GlobalGameJam2016
 	static class Game
 	{
 		private static Engine engine;
-		private static PlayerEarth player;
+		public static PlayerEarth player;
 
 		public static void Init()
 		{
