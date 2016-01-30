@@ -7,16 +7,22 @@ using Aiv.Engine;
 
 namespace GlobalGameJam2016.EnemyList
 {
-     class Enemy : SpriteObject
+    class Enemy : SpriteObject
     {
         public float Health { get; protected set; }
         public int Speed { get; protected set; }
         private bool isEasy;
 
-        public Enemy(int width, int height ,  bool isEasy, string hitBoxName = "auto") : base (width,height,true,hitBoxName)
+        public enum CheckMovement
         {
-            
-            Speed = 100;
+            RightMovement,
+            LeftMovement
+        }
+
+        public Enemy(int width, int height, bool isEasy, string hitBoxName = "auto") : base(width, height, true, hitBoxName)
+        {
+
+            Speed = 50;
             this.isEasy = isEasy;
         }
 
@@ -28,11 +34,8 @@ namespace GlobalGameJam2016.EnemyList
             if (Health == 0)
                 this.Destroy();
         }
-        public virtual void Movement()
-        {
-            
-        }
-        
-        
+
+        public virtual void Movement() { }
+
     }
 }
