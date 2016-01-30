@@ -14,8 +14,12 @@ namespace GlobalGameJam2016.PlayerList
 	class PlayerEarth : Player
 	{
 		private Enviroment.Enviroment enviroment;
+		private bool isRight;
 		public PlayerEarth(int width, int height, bool autoHitbox, string autoHitboxName) : base(width, height, autoHitbox, autoHitboxName)
 		{
+			isRight = true;
+			X = 1280 / 2;
+			Y = -height;
 		}
 
 		public override void Start()
@@ -32,9 +36,19 @@ namespace GlobalGameJam2016.PlayerList
 
 		private void Input()
 		{
-			if (Engine.IsKeyDown(keyMap.attack) && Engine.IsKeyDown(keyMap.down))
+			if (Engine.IsKeyDown(keyMap.attack) && Engine.IsKeyDown(keyMap.down) && Game.enviromentEarth.tiles[Utils.GetPos((int)(this.X + this.Height / 2) / 80, (int)(this.Y + (this.Height / 2)) / 80 + 1, 16)].tileType == TileType.DestrWall)
 			{
-				Dig();
+				Game.enviromentEarth.tiles[Utils.GetPos((int)(this.X + this.Height / 2) / 80, (int)(this.Y + (this.Height / 2)) / 80 + 1, 16)].tileType = TileType.None;
+
+			}
+			else if (Engine.IsKeyDown(keyMap.attack))
+			{
+				if (isRight && Game.enviromentEarth.tiles[Utils.GetPos((int)(this.X + this.Height / 2) / 80 + 1, (int)(this.Y + (this.Height / 2)) / 80, 16)].tileType == TileType.DestrWall)
+					Game.enviromentEarth.tiles[Utils.GetPos((int)(this.X + this.Height / 2) / 80 + 1, (int)(this.Y + (this.Height / 2)) / 80, 16)].tileType = TileType.None;
+				else if(!isRight && Game.enviromentEarth.tiles[Utils.GetPos((int)(this.X + this.Height / 2) / 80 - 1, (int)(this.Y + (this.Height / 2)) / 80, 16)].tileType == TileType.DestrWall)
+					Game.enviromentEarth.tiles[Utils.GetPos((int)(this.X + this.Height / 2) / 80 - 1, (int)(this.Y + (this.Height / 2)) / 80, 16)].tileType = TileType.None;
+
+
 			}
 		}
 
@@ -46,9 +60,15 @@ namespace GlobalGameJam2016.PlayerList
 		private void Movement()
 		{
 			if (Engine.IsKeyDown(keyMap.left))
+			{
 				X -= movSpeed * Engine.DeltaTime;
+				isRight = false;
+			}
 			else if (Engine.IsKeyDown(keyMap.right))
+			{
 				X += movSpeed * Engine.DeltaTime;
+				isRight = true;
+			}
 
 			if (CheckCollisions().Count == 0)
 			{

@@ -107,7 +107,7 @@ namespace GlobalGameJam2016.EnemyList
 
 			foreach (var obj in CheckCollisions())
 			{
-				if (obj.OtherHitBox.StartsWith("wall"))
+				if (obj.OtherHitBox.StartsWith("Wall"))
 				{
 					Tile otherTile = (Tile)obj.Other;
 					Game.enviromentEarth.tiles[Utils.GetPos((int)otherTile.X / 80, (int)otherTile.Y / 80, 16)].tileType = TileType.None;
