@@ -9,6 +9,7 @@ namespace GlobalGameJam2016
 	static class Game
 	{
 		private static Engine engine;
+		private static PlayerEarth player;
 
 		public static void Init()
 		{
@@ -17,7 +18,7 @@ namespace GlobalGameJam2016
 			Asset.BasePath = "../../assets/";
 
 			Utils.LoadAssets(engine, "playerDefault", "playerDefault.png", 1, 1);
-			PlayerEarth player = new PlayerEarth(64, 96, true, "playerDefault");
+			player = new PlayerEarth(64, 96, true, "playerDefault");
 
 #if DEBUG
 			engine.debugCollisions = true;
