@@ -4,14 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Aiv.Engine;
-
+using GlobalGameJam2016.Enviroment;
 
 namespace GlobalGameJam2016.EnemyList
 {
 	class EnemyEarth : Enemy
 	{
 		public CheckMovement move;
-		public EnemyEarth(int width, int height, bool isEasy, string hitBoxName) : base(width, height, isEasy, hitBoxName)
+		public EnemyEarth(int width, int height, bool isEasy, string hitBoxName, int posX,int posY) : base(width, height, isEasy,posX,posY, hitBoxName)
 		{
 			move = CheckMovement.RightMovement;
 			if (isEasy)
@@ -67,11 +67,10 @@ namespace GlobalGameJam2016.EnemyList
 	class EnemyEarthEasy : EnemyEarth
 	{
 		Player player;
-		public EnemyEarthEasy(Engine engine, int width, int height, int posX, int posY) : base(width, height, true, "Enemy_Blob")
+		public EnemyEarthEasy(Engine engine, int posX, int posY) : base(60, 40, true, "Enemy_Blob", posX, posY)
 		{
 			this.player = Game.player;
-			X = posX;
-			Y = posY;
+			
 		}
 
 		public override void Start()
@@ -97,7 +96,7 @@ namespace GlobalGameJam2016.EnemyList
 	{
 		Player player;
 
-		public EnemyEarthMedium(Engine engine, int width, int height) : base(width, height, false, "Enemy_Mole")
+		public EnemyEarthMedium(Engine engine,int posX,int posY) : base(60, 80, false, "Enemy_Mole", posX, posY)
 		{
 			this.player = Game.player;
 		}
@@ -112,6 +111,15 @@ namespace GlobalGameJam2016.EnemyList
 		{
 			base.Update();
 			Movement();
+
+            foreach (var obj in CheckCollisions())
+            {
+                if(obj.HitBox == "Enemy_Coll")
+                {
+                    Tile other = (Tile)obj.Other;
+                    Game.enviromentEarth.tiles[Utils.GetPos((int)other.X,(int)other.Y, 16)].tileType = TileType.None;
+                }
+            }
 		}
 
 		public override void Movement()
@@ -125,10 +133,7 @@ namespace GlobalGameJam2016.EnemyList
 				if (player.X < this.X)
 					move = CheckMovement.LeftMovement;
 			}
-			if (HasCollisions())
-			{
-				// destroy block
-			}
+			
 		}
 	}
 }

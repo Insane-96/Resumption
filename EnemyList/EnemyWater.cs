@@ -11,9 +11,10 @@ namespace GlobalGameJam2016.EnemyList
     {
 
         public CheckMovement move;
-        public EnemyWater(int width, int height, bool isEasy, string hitBoxName) : base(width, height, isEasy, hitBoxName)
-            {
+        public EnemyWater(int width, int height, bool isEasy, string hitBoxName, int posX, int posY) : base(width, height, isEasy, posX, posY, hitBoxName)
+        {
             move = CheckMovement.RightMovement;
+
             if (isEasy)
             {
                 Health = 1;
@@ -59,7 +60,7 @@ namespace GlobalGameJam2016.EnemyList
     class EnemyWaterEasy : EnemyWater
     {
         Player player;
-        public EnemyWaterEasy(Engine engine, int width, int height) : base(width, height, true, "Enemy_Blob") // change name
+        public EnemyWaterEasy(Engine engine, int posX, int posY) : base(60, 40, true, "Enemy_", posX, posY) // change name
         {
             this.player = Game.player;
             // Utils.LoadAssets(engine,);
@@ -87,7 +88,7 @@ namespace GlobalGameJam2016.EnemyList
     {
         Player player;
 
-        public EnemyWaterMedium(Engine engine, int width, int height) : base(width, height, false, "Enemy_Mole")
+        public EnemyWaterMedium(Engine engine, int posX, int posY) : base(60, 80, false, "Enemy_", posX, posY)
         {
             this.player = Game.player;
             // Utils.LoadAssets(engine,);
