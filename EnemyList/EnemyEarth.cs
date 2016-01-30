@@ -67,7 +67,6 @@ namespace GlobalGameJam2016.EnemyList
 		public EnemyEarthEasy(Engine engine, int width, int height) : base(width, height, true, "Enemy_Blob")
 		{
 			this.player = Game.player;
-			// Utils.LoadAssets(engine,);
 		}
 
 		public override void Start()
@@ -95,7 +94,6 @@ namespace GlobalGameJam2016.EnemyList
 		public EnemyEarthMedium(Engine engine, int width, int height) : base(width, height, false, "Enemy_Mole")
 		{
 			this.player = Game.player;
-			// Utils.LoadAssets(engine,);
 		}
 
 		public override void Start()
