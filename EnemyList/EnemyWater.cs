@@ -30,7 +30,7 @@ namespace GlobalGameJam2016.EnemyList
             base.Start();
             this.AddAnimation("player_idle", new List<string> { "playerDefault_0_0" }, 10);
             this.CurrentAnimation = "player_idle";
-            Engine.Timer.Set("Couldown", 2f);
+            Engine.Timer.Set("Cooldown", 2f);
         }
 
         public virtual void Movement()
@@ -39,10 +39,10 @@ namespace GlobalGameJam2016.EnemyList
             {
                 X += Speed * Engine.DeltaTime;
 
-                if (Engine.Timer.Get("Couldown") <= 0)
+                if (Engine.Timer.Get("Cooldown") <= 0)
                 {
                     move = CheckMovement.LeftMovement;
-                    Engine.Timer.Set("Couldown", 2f);
+                    Engine.Timer.Set("Cooldown", 2f);
                 }
                     
             }
@@ -51,10 +51,10 @@ namespace GlobalGameJam2016.EnemyList
             {
                 X -= Speed * Engine.DeltaTime;
 
-                if (Engine.Timer.Get("Couldown") <= 0)
+                if (Engine.Timer.Get("Cooldown") <= 0)
                 {
                     move = CheckMovement.RightMovement;
-                    Engine.Timer.Set("Couldown", 2f);
+                    Engine.Timer.Set("Cooldown", 2f);
                 }
             }
         }
