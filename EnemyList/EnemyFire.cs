@@ -61,7 +61,7 @@ namespace GlobalGameJam2016.EnemyList
     class EnemyFireEasy : EnemyFire
     {
         Player player;
-        public EnemyFireEasy(Engine engine, int width, int height, int posX, int posY) : base(width, height, posX ,posY, true, "Enemy_Blob") // change name
+        public EnemyFireEasy(int width, int height, int X, int Y, bool isEasy, string hitBoxName) : base(width, height,X,Y, isEasy ,"Enemy_Blob")// change name
         {
             this.player = Game.player;
             // Utils.LoadAssets(engine,);
@@ -89,7 +89,7 @@ namespace GlobalGameJam2016.EnemyList
     {
         Player player;
 
-        public EnemyFirerMedium(Engine engine, int width, int height, int posX, int posY) : base(width, height, posX, posY, false, "Enemy_Mole")
+        public EnemyFirerMedium(int width, int height, int X, int Y, bool isEasy, string hitBoxName) : base(width, height, X, Y, isEasy, "Enemy_Mole")
         {
             this.player = Game.player;
             // Utils.LoadAssets(engine,);

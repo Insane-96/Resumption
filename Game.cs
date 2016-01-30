@@ -10,7 +10,7 @@ namespace GlobalGameJam2016
 	static class Game
 	{
 		private static Engine engine;
-		public static PlayerEarth player;
+		public static PlayerFire player;
 		public static EnemyEarthMedium enemy;
 		public static EnviromentEarth enviromentEarth;
 		//public static EnemyAirEasy enemyAir;
@@ -23,10 +23,13 @@ namespace GlobalGameJam2016
 			Asset.BasePath = "../../assets/";
 
 			Utils.LoadAssets(engine, "playerDefault", "playerDefault.png", 1, 1);
-			player = new PlayerEarth(60, 80, true, "playerDefault");
+			player = new PlayerFire(60, 80, true, "playerDefault");
 
 			Utils.LoadAssets(engine, "background", "background.png", 1, 1);
 			enviromentEarth = new EnviromentEarth(1280, 720);
+
+            Utils.LoadAssets(engine, "bullet", "bullet.png", 1, 1);
+            
 
 			EnemyEarth[] enemyEarths = new EnemyEarth[Utils.Randomize(3, 7)];
 			for (int i = 0; i < enemyEarths.Length; i++)
@@ -52,6 +55,7 @@ namespace GlobalGameJam2016
 #if DEBUG
 			engine.debugCollisions = true;
 #endif
+            engine.SpawnObject("background", enviromentEarth);
 			engine.SpawnObject("player", player);
 			//engine.SpawnObject("enemy", enemy);
 			for (int i = 0; i < enviromentEarth.tiles.Length; i++)
