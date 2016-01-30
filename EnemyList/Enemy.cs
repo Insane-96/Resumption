@@ -9,7 +9,7 @@ namespace GlobalGameJam2016.EnemyList
 {
     class Enemy : SpriteObject
     {
-        public float Health { get; protected set; }
+        public int Health { get; protected set; }
         public int Speed { get; protected set; }
         private bool isEasy;
 
