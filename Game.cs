@@ -23,7 +23,7 @@ namespace GlobalGameJam2016
 			Asset.BasePath = "../../assets/";
 
 			Utils.LoadAssets(engine, "playerDefault", "playerDefault.png", 1, 1);
-			player = new PlayerEarth(60, 80, true, "playerDefault");
+			player = new PlayerEarth(60, 80, false, "playerDefault");
 
 			Utils.LoadAssets(engine, "background", "background.png", 1, 1);
 			enviromentEarth = new EnviromentEarth(1280, 720);
@@ -38,7 +38,7 @@ namespace GlobalGameJam2016
 					rY = Utils.Randomize(1, 32);
 				} while (enviromentEarth.tiles[Utils.GetPos(rX, rY, 14)].tileType != TileType.None);
 				if (Utils.Randomize(0, 100) < 25)
-					enemyEarths[i] = new EnemyEarthMedium(engine, rX * 80, rY * 80);
+					enemyEarths[i] = new EnemyEarthEasy(engine, rX * 80, rY * 80);
 				else
 					enemyEarths[i] = new EnemyEarthMedium(engine, rX * 80, rY * 80);
 			}
