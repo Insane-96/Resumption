@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace GlobalGameJam2016.BossList
 {
-    class BossEarth
+    class BossEarth : Boss
     {
+        public BossEarth(int posX, int posY) : base (0,0,posX,posY, "Boss_Earth")
+        {
+
+        }
     }
 }
