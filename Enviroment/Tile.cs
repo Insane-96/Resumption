@@ -34,5 +34,18 @@ namespace GlobalGameJam2016.Enviroment
 			else if (tileType == TileType.DestrWall)
 				CurrentSprite = (SpriteAsset)Engine.GetAsset("destrWall_0_0");
 		}
+
+		public override void Update()
+		{
+			base.Update();
+			if (tileType == TileType.UndestrWall)
+				CurrentSprite = (SpriteAsset)Engine.GetAsset("undestrWall_0_0");
+			else if (tileType == TileType.DestrWall)
+				CurrentSprite = (SpriteAsset)Engine.GetAsset("destrWall_0_0");
+			else if (tileType == TileType.None)
+			{
+				this.Destroy();
+			}
+		}
 	}
 }
