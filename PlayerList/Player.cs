@@ -16,6 +16,7 @@ namespace GlobalGameJam2016
 		public int movSpeed;
 		public float gravitySpeed;
 		public KeyMap keyMap;
+		public Vector2 oldPos;
 
 		public Player(int width, int height, bool autoHitbox, string autoHitboxName) : base(width, height, autoHitbox, autoHitboxName)
 		{
@@ -36,7 +37,12 @@ namespace GlobalGameJam2016
 		public override void Start()
 		{
 			base.Start();
-			//LoadAnimations();
+			LoadAnimations();
+			//SpriteAsset spriteAsset = (SpriteAsset)Engine.GetAsset("playerDefault_0_0");
+			AddHitBox("PlayerLeft", 0, (int)this.Height / 3, (int)this.Width / 2, (int)this.Height / 3);
+			AddHitBox("PlayerRight", (int)this.Width / 2, (int)this.Height / 3, (int)this.Width / 2, (int)this.Height / 3);
+			AddHitBox("PlayerUp", 0, 0, (int)this.Width, (int)this.Height / 3);
+			AddHitBox("PlayerDown", 0, (int)this.Height / 3 * 2, (int)this.Width, (int)this.Height / 3);
 		}
 
 		public override void Update()

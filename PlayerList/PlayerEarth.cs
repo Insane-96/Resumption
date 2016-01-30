@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using Aiv.Fast2D;
 using GlobalGameJam2016.Enviroment;
@@ -19,7 +15,7 @@ namespace GlobalGameJam2016.PlayerList
 		public PlayerEarth(int width, int height, bool autoHitbox, string autoHitboxName) : base(width, height, autoHitbox, autoHitboxName)
 		{
 			isRight = true;
-			X = 1280 / 2;
+			X = 1280 / 2f;
 			Y = -height;
 		}
 
@@ -43,37 +39,62 @@ namespace GlobalGameJam2016.PlayerList
         }
 		private void Input()
 		{
-			if (Engine.IsKeyDown(keyMap.attack) && Engine.IsKeyDown(keyMap.down) && Game.enviromentEarth.tiles[Utils.GetPos((int)(this.X + this.Height / 2) / 80, (int)(this.Y + (this.Height / 2)) / 80 + 1, 16)].tileType == TileType.DestrWall)
+			if (Engine.Timer.Get("cooldown") <= 0)
 			{
-				Game.enviromentEarth.tiles[Utils.GetPos((int)(this.X + this.Height / 2) / 80, (int)(this.Y + (this.Height / 2)) / 80 + 1, 16)].tileType = TileType.None;
+				if (Engine.IsKeyDown(keyMap.attack) && Engine.IsKeyDown(keyMap.down) &&
+					Game.enviromentEarth.tiles[
+						Utils.GetPos((int)(this.X + this.Height / 2) / 80, (int)(this.Y + (this.Height / 2)) / 80 + 1, 16)].tileType ==
+					TileType.DestrWall)
+				{
+					Game.enviromentEarth.tiles[
+						Utils.GetPos((int)(this.X + this.Height / 2) / 80, (int)(this.Y + (this.Height / 2)) / 80 + 1, 16)].tileType =
+						TileType.None;
+					Engine.Timer.Set("cooldown", 1.2f);
 
+				}
+				else if (Engine.IsKeyDown(keyMap.attack) && isRight &&
+						 Game.enviromentEarth.tiles[
+							 Utils.GetPos((int)(this.X + this.Width / 2) / 80 + 1, (int)(this.Y + (this.Height / 2)) / 80, 16)].tileType ==
+						 TileType.DestrWall)
+				{
+					Game.enviromentEarth.tiles[
+						Utils.GetPos((int)(this.X + this.Width / 2) / 80 + 1, (int)(this.Y + (this.Height / 2)) / 80, 16)].tileType =
+						TileType.None;
+					Engine.Timer.Set("cooldown", 1.2f);
+				}
+				else if (Engine.IsKeyDown(keyMap.attack) && !isRight &&
+						 Game.enviromentEarth.tiles[
+							 Utils.GetPos((int)(this.X + this.Width / 2) / 80 - 1, (int)(this.Y + (this.Height / 2)) / 80, 16)].tileType ==
+						 TileType.DestrWall)
+				{
+					Game.enviromentEarth.tiles[
+						Utils.GetPos((int)(this.X + this.Width / 2) / 80 - 1, (int)(this.Y + (this.Height / 2)) / 80, 16)].tileType =
+						TileType.None;
+					Engine.Timer.Set("cooldown", 1.2f);
+				}
 			}
-			else if (Engine.IsKeyDown(keyMap.attack))
-			{
-				if (isRight && Game.enviromentEarth.tiles[Utils.GetPos((int)(this.X + this.Height / 2) / 80 + 1, (int)(this.Y + (this.Height / 2)) / 80, 16)].tileType == TileType.DestrWall)
-					Game.enviromentEarth.tiles[Utils.GetPos((int)(this.X + this.Height / 2) / 80 + 1, (int)(this.Y + (this.Height / 2)) / 80, 16)].tileType = TileType.None;
-				else if(!isRight && Game.enviromentEarth.tiles[Utils.GetPos((int)(this.X + this.Height / 2) / 80 - 1, (int)(this.Y + (this.Height / 2)) / 80, 16)].tileType == TileType.DestrWall)
-					Game.enviromentEarth.tiles[Utils.GetPos((int)(this.X + this.Height / 2) / 80 - 1, (int)(this.Y + (this.Height / 2)) / 80, 16)].tileType = TileType.None;
-
-
-			}
-		}
-
-		private void Dig()
-		{
-			Game.enviromentEarth.tiles[Utils.GetPos((int)(this.X + this.Height / 2) / 80, (int)(this.Y + (this.Height / 2)) / 80 + 1, 16)].tileType = TileType.None;
 		}
 
 		private void Movement()
 		{
 			if (Engine.IsKeyDown(keyMap.left))
 			{
-				X -= movSpeed * Engine.DeltaTime;
+				foreach (var obj in CheckCollisions())
+				{
+					if (!obj.OtherHitBox.StartsWith("Wall") || !obj.HitBox.EndsWith("Left"))
+						X -= movSpeed * Engine.DeltaTime;
+					break;
+				}
 				isRight = false;
 			}
 			else if (Engine.IsKeyDown(keyMap.right))
 			{
-				X += movSpeed * Engine.DeltaTime;
+				foreach (var obj in CheckCollisions())
+				{
+					if (!obj.OtherHitBox.StartsWith("Wall") || !obj.HitBox.EndsWith("Right"))
+						X += movSpeed * Engine.DeltaTime;
+					break;
+				}
 				isRight = true;
 			}
 
