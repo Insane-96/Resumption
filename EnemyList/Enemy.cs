@@ -16,7 +16,9 @@ namespace GlobalGameJam2016.EnemyList
         public enum CheckMovement
         {
             RightMovement,
-            LeftMovement
+            LeftMovement,
+            UpMovement,
+            DownMovement
         }
 
         public Enemy(int width, int height, bool isEasy, string hitBoxName = "auto") : base(width, height, true, hitBoxName)
