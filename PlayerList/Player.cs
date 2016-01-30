@@ -36,7 +36,7 @@ namespace GlobalGameJam2016
 		public override void Start()
 		{
 			base.Start();
-			LoadAnimations();
+			//LoadAnimations();
 		}
 
 		public override void Update()

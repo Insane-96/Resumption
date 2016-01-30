@@ -8,6 +8,7 @@ using Aiv.Fast2D;
 using GlobalGameJam2016.Enviroment;
 using OpenTK;
 using OpenTK.Input;
+using Aiv.Engine;
 
 namespace GlobalGameJam2016.PlayerList
 {
@@ -25,13 +26,15 @@ namespace GlobalGameJam2016.PlayerList
 		public override void Start()
 		{
 			base.Start();
+            var baseSprite = (SpriteAsset)Engine.GetAsset("hero_0_3");
+            CurrentSprite = baseSprite;
 		}
 
 		public override void Update()
 		{
 			base.Update();
-			Movement();
-			Input();
+			//Movement();
+			//Input();
 		}
 
 		private void Input()
@@ -70,15 +73,15 @@ namespace GlobalGameJam2016.PlayerList
 				isRight = true;
 			}
 
-			if (CheckCollisions().Count == 0)
+			/* (CheckCollisions().Count == 0)
 			{
 				this.Y += 200f * Engine.DeltaTime;
 				if (this.Y > Engine.Height / 2)
-					Engine.Camera.Y = Y - Engine.Height / 2;
+					Engine.Camera.Y = Y - Engine.Height / 2;*/
 
 				Engine.Camera.Update();
 
-			}
+			//}
 		}
 	}
 }
