@@ -35,19 +35,19 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="aiv-fast2d">
-      <HintPath>..\aivengine-1\aivengine\bin\Debug\aiv-fast2d.dll</HintPath>
+      <HintPath>..\aivengine-master\aivengine\bin\Debug\aiv-fast2d.dll</HintPath>
     </Reference>
     <Reference Include="aiv-vorbis">
-      <HintPath>..\aivengine-1\aivengine\bin\Debug\aiv-vorbis.dll</HintPath>
+      <HintPath>..\aivengine-master\aivengine\bin\Debug\aiv-vorbis.dll</HintPath>
     </Reference>
     <Reference Include="aivengine">
-      <HintPath>..\aivengine-1\aivengine\bin\Debug\aivengine.dll</HintPath>
+      <HintPath>..\aivengine-master\aivengine\bin\Debug\aivengine.dll</HintPath>
     </Reference>
     <Reference Include="NVorbis">
-      <HintPath>..\aivengine-1\aivengine\bin\Debug\NVorbis.dll</HintPath>
+      <HintPath>..\aivengine-master\aivengine\bin\Debug\NVorbis.dll</HintPath>
     </Reference>
     <Reference Include="OpenTK">
-      <HintPath>..\aivengine-1\aivengine\bin\Debug\OpenTK.dll</HintPath>
+      <HintPath>..\aivengine-master\aivengine\bin\Debug\OpenTK.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -61,9 +61,11 @@
     <Compile Include="EnemyList\Enemy.cs" />
     <Compile Include="EnemyList\EnemyAir.cs" />
     <Compile Include="EnemyList\EnemyEarth.cs" />
+    <Compile Include="EnemyList\EnemyFire.cs" />
     <Compile Include="EnemyList\EnemyWater.cs" />
     <Compile Include="Enviroment\Enviroment.cs" />
     <Compile Include="Enviroment\EnviromentEarth.cs" />
+    <Compile Include="Enviroment\EnviromentFire.cs" />
     <Compile Include="Enviroment\Tile.cs" />
     <Compile Include="Game.cs" />
     <Compile Include="KeyMap.cs" />
