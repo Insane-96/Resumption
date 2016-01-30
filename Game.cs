@@ -27,8 +27,8 @@ namespace GlobalGameJam2016
 
 			Asset.BasePath = "../../assets/";
 
-			/*Utils.LoadAssets(engine, "playerDefault", "playerDefault.png", 1, 1);
-			player = new PlayerEarth(60, 80, true, "playerDefault");*/
+			Utils.LoadAssets(engine, "playerDefault", "playerDefault.png", 1, 1);
+			/*player = new PlayerEarth(60, 80, true, "playerDefault");*/
             Utils.LoadAssets(engine, "startHub", "base.png", 1, 1);
             startEnvironment = new StartEnvironment(1280, 720);
             Utils.LoadAssets(engine, "hero", "images.png", 4, 4);
