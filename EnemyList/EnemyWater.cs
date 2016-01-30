@@ -60,7 +60,7 @@ namespace GlobalGameJam2016.EnemyList
     class EnemyWaterEasy : EnemyWater
     {
         Player player;
-        public EnemyWaterEasy(Engine engine, int width, int height, int posX, int posY) : base(width, height, true, "Enemy_", posX, posY) // change name
+        public EnemyWaterEasy(Engine engine, int posX, int posY) : base(60, 40, true, "Enemy_", posX, posY) // change name
         {
             this.player = Game.player;
             // Utils.LoadAssets(engine,);
@@ -88,7 +88,7 @@ namespace GlobalGameJam2016.EnemyList
     {
         Player player;
 
-        public EnemyWaterMedium(Engine engine, int width, int height, int posX, int posY) : base(width, height, false, "Enemy_", posX, posY)
+        public EnemyWaterMedium(Engine engine, int posX, int posY) : base(60, 80, false, "Enemy_", posX, posY)
         {
             this.player = Game.player;
             // Utils.LoadAssets(engine,);

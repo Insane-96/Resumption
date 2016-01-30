@@ -67,7 +67,7 @@ namespace GlobalGameJam2016.EnemyList
 	class EnemyEarthEasy : EnemyEarth
 	{
 		Player player;
-		public EnemyEarthEasy(Engine engine, int width, int height, int posX, int posY) : base(width, height, true, "Enemy_Blob", posX, posY)
+		public EnemyEarthEasy(Engine engine, int posX, int posY) : base(60, 40, true, "Enemy_Blob", posX, posY)
 		{
 			this.player = Game.player;
 			
@@ -96,7 +96,7 @@ namespace GlobalGameJam2016.EnemyList
 	{
 		Player player;
 
-		public EnemyEarthMedium(Engine engine, int width, int height,int posX,int posY) : base(width, height, false, "Enemy_Mole", posX, posY)
+		public EnemyEarthMedium(Engine engine,int posX,int posY) : base(60, 80, false, "Enemy_Mole", posX, posY)
 		{
 			this.player = Game.player;
 		}
