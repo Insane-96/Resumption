@@ -10,8 +10,10 @@ namespace GlobalGameJam2016.EnemyList
 {
     class EnemyEarth : Enemy
     {
+        CheckMovement move;
         public EnemyEarth(int width, int height, bool isEasy, string hitBoxName) : base(width, height, isEasy, hitBoxName)
         {
+            move = CheckMovement.RightMovement;
             if (isEasy)
             {
                 Health = 1;
@@ -28,11 +30,27 @@ namespace GlobalGameJam2016.EnemyList
         }
         public override void Movement()
         {
+            
             base.Movement();
-            X += Speed * Engine.DeltaTime;
+            
             if(HasCollisions())
             {
-                X *= -1;
+                if (move == CheckMovement.RightMovement)
+                {
+                    X += Speed * Engine.DeltaTime;
+
+                    if (HasCollisions())
+                        move = CheckMovement.LeftMovement;
+                }
+                    
+                if (move == CheckMovement.LeftMovement)
+                {
+                    X -= Speed * Engine.DeltaTime;
+
+                    if (HasCollisions())
+                        move = CheckMovement.RightMovement;
+                }
+                    
             }
         }
         public override void Update()
@@ -91,8 +109,15 @@ namespace GlobalGameJam2016.EnemyList
             public override void Movement()
             {
                 base.Movement();
-                
-                if (HasCollisions())// aggiungere vector
+                if(this.Y == player.Y)
+                {
+                    if (player.X > this.X)
+                        move = CheckMovement.RightMovement;
+
+                    if (player.X < this.X)
+                        move = CheckMovement.LeftMovement;
+                }
+                if (HasCollisions())
                 {
                     // destroy block
                 }
