@@ -14,6 +14,7 @@ namespace GlobalGameJam2016
 		int lifes;
 		int energy;
 		public int movSpeed;
+		public float gravitySpeed;
 		public KeyMap keyMap;
 
 		public Player(int width, int height, bool autoHitbox, string autoHitboxName) : base(width, height, autoHitbox, autoHitboxName)
@@ -22,6 +23,7 @@ namespace GlobalGameJam2016
 			lifes = 3;
 			energy = 100;
 			movSpeed = 100;
+			gravitySpeed = 0;
 			keyMap = new KeyMap(KeyCode.W, KeyCode.S, KeyCode.A, KeyCode.D, KeyCode.E, KeyCode.Space);
 		}
 

@@ -33,10 +33,11 @@ namespace GlobalGameJam2016.PlayerList
 			else if (Engine.IsKeyDown(keyMap.right))
 				X += movSpeed * Engine.DeltaTime;
 
-			if (CheckCollisions().Count == 0)
-			{
-				this.Y += 40f * Engine.DeltaTime;
-			}
+			//if (CheckCollisions().Count == 0)
+			//{
+			//	gravitySpeed += (float)Math.Pow(1.1, gravitySpeed);
+			//	this.Y += 100f * gravitySpeed * Engine.DeltaTime;
+			//}
 		}
 	}
 }
