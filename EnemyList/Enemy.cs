@@ -12,6 +12,8 @@ namespace GlobalGameJam2016.EnemyList
         public int Health { get; protected set; }
         public int Speed { get; protected set; }
         private bool isEasy;
+        private int width;
+        private int height;
 
         public enum CheckMovement
         {
@@ -21,14 +23,21 @@ namespace GlobalGameJam2016.EnemyList
             DownMovement
         }
 
-        public Enemy(int width, int height, bool isEasy, string hitBoxName = "auto") : base(width, height, true, hitBoxName)
+        public Enemy(int width, int height, bool isEasy, int posX, int posY, string hitBoxName = "auto") : base(width, height, true, hitBoxName)
         {
-
+            X = posX;
+            Y = posY;
             Speed = 50;
             this.isEasy = isEasy;
+            this.width = width;
+            this.height = height;
         }
 
-        // da spostare in bullet
+        public override void Start()
+        {
+            base.Start();
+            AddHitBox("Enemy_Coll", 0, 0, width, height / 2);
+        }
 
         public override void Update()
         {
@@ -36,7 +45,11 @@ namespace GlobalGameJam2016.EnemyList
             if (Health == 0)
                 this.Destroy();
         }
-		
+
+        public void Damage()
+        {
+            Health--;
+        }
 
     }
 }
