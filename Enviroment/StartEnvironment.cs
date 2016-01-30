@@ -11,10 +11,7 @@ namespace GlobalGameJam2016.Enviroment
 {
     class StartEnvironment: Enviroment
     {
-        Player[] player;  
-        
-
-        
+        Player[] player;
         
         public StartEnvironment(int width, int height):base(width,height)
         {
