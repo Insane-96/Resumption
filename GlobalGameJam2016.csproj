@@ -56,6 +56,8 @@
     <Reference Include="System.Drawing" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BossList\Boss.cs" />
+    <Compile Include="BossList\BossEarth.cs" />
     <Compile Include="EnemyList\Enemy.cs" />
     <Compile Include="EnemyList\EnemyAir.cs" />
     <Compile Include="EnemyList\EnemyEarth.cs" />

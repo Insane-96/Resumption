@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Aiv.Engine;
-
+using GlobalGameJam2016.Enviroment;
 
 namespace GlobalGameJam2016.EnemyList
 {
@@ -116,7 +116,8 @@ namespace GlobalGameJam2016.EnemyList
             {
                 if(obj.HitBox == "Enemy_Coll")
                 {
-                    //destroy block
+                    Tile other = (Tile)obj.Other;
+                    Game.enviromentEarth.tiles[Utils.GetPos((int)other.X,(int)other.Y, 16)].tileType = TileType.None;
                 }
             }
 		}
