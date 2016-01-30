@@ -29,6 +29,6 @@ namespace GlobalGameJam2016
 			}
 		}
 
-		public static void CreateAnimation(Player)
+		//public static void CreateAnimation(Player)
 	}
 }

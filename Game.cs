@@ -10,6 +10,7 @@ namespace GlobalGameJam2016
 	{
 		private static Engine engine;
 		public static PlayerEarth player;
+		public static EnemyEarthMedium enemy;
 
 		public static void Init()
 		{
@@ -19,12 +20,15 @@ namespace GlobalGameJam2016
 
 			Utils.LoadAssets(engine, "playerDefault", "playerDefault.png", 1, 1);
 			player = new PlayerEarth(64, 96, true, "playerDefault");
+			
+			enemy = new EnemyEarthMedium(engine, 64, 96);
 
 #if DEBUG
 			engine.debugCollisions = true;
 #endif
 
 			engine.SpawnObject("player", player);
+			engine.SpawnObject("enemy", enemy);
 		}
 
 		public static void Run()
