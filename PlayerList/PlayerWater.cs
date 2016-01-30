@@ -19,6 +19,7 @@ namespace GlobalGameJam2016.PlayerList
 			base.Start();
             var baseSprite = (SpriteAsset)Engine.GetAsset("hero_0_2");
             CurrentSprite = baseSprite;
+            AddAnimation("walkUp", new List<string> { "hero_0_1", "hero_1_1", "hero_2_1", "hero_3_1" }, 5);
 		}
 
 		public override void Update()
@@ -26,5 +27,9 @@ namespace GlobalGameJam2016.PlayerList
 			base.Update();
 			
 		}
+        public void ChangeAnimation()
+        {
+            CurrentAnimation = "walkUp";
+        }
     }
 }
