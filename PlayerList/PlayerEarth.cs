@@ -28,6 +28,7 @@ namespace GlobalGameJam2016.PlayerList
 			base.Start();
             var baseSprite = (SpriteAsset)Engine.GetAsset("hero_0_3");
             CurrentSprite = baseSprite;
+            AddAnimation("walkUp", new List<string> { "hero_0_0", "hero_1_0", "hero_2_0", "hero_3_0" }, 5);
 		}
 
 		public override void Update()
@@ -36,7 +37,10 @@ namespace GlobalGameJam2016.PlayerList
 			//Movement();
 			//Input();
 		}
-
+        public void ChangeAnimation()
+        {
+            CurrentAnimation = "walkUp";
+        }
 		private void Input()
 		{
 			if (Engine.IsKeyDown(keyMap.attack) && Engine.IsKeyDown(keyMap.down) && Game.enviromentEarth.tiles[Utils.GetPos((int)(this.X + this.Height / 2) / 80, (int)(this.Y + (this.Height / 2)) / 80 + 1, 16)].tileType == TileType.DestrWall)
