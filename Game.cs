@@ -1,6 +1,7 @@
 ﻿using System;
 using Aiv.Engine;
 using OpenTK;
+using Aiv.Vorbis;
 using GlobalGameJam2016.EnemyList;
 using GlobalGameJam2016.Enviroment;
 using GlobalGameJam2016.PlayerList;
@@ -43,6 +44,8 @@ namespace GlobalGameJam2016
             player4 = new PlayerWater(60, 80, true, "hero");
             player4.X = 400;
             player4.Y = 330;
+            
+
 			/*Utils.LoadAssets(engine, "background", "background.png", 1, 1);
 			enviromentEarth = new EnviromentEarth(1280, 720);
 
