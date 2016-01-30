@@ -58,6 +58,7 @@
   <ItemGroup>
     <Compile Include="EnemyList\Enemy.cs" />
     <Compile Include="EnemyList\EnemyEarth.cs" />
+    <Compile Include="EnemyList\EnemyWater.cs" />
     <Compile Include="Enviroment\Enviroment.cs" />
     <Compile Include="Game.cs" />
     <Compile Include="KeyMap.cs" />
