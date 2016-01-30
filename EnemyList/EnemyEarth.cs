@@ -33,7 +33,6 @@ namespace GlobalGameJam2016.EnemyList
 
 		public virtual void Movement()
 		{
-			float lastY;
 			if (move == CheckMovement.RightMovement)
 			{
 
@@ -50,7 +49,7 @@ namespace GlobalGameJam2016.EnemyList
 				if (HasCollisions())
 					move = CheckMovement.RightMovement;
 			}
-			lastY = Y;
+			var lastY = Y;
 			Y += 100 * Engine.DeltaTime;
 			if (CheckCollisions().Count > 0)
 			{
@@ -83,12 +82,6 @@ namespace GlobalGameJam2016.EnemyList
 		{
 			base.Update();
 			Movement();
-		}
-
-		public override void Movement()
-		{
-			base.Movement();
-
 		}
 	}
 
