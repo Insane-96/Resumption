@@ -31,10 +31,8 @@ namespace GlobalGameJam2016.EnemyList
             this.CurrentAnimation = "player_idle";
         }
 
-        public override void Movement()
+        public virtual void Movement()
         {
-            base.Movement();
-
             if (move == CheckMovement.RightMovement)
             {
                 X += Speed * Engine.DeltaTime;

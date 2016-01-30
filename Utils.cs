@@ -15,16 +15,21 @@ namespace GlobalGameJam2016
 			return r.Next(n, m);
 		}
 
+		public static int GetPos(int x, int y, int width)
+		{
+			return (y * width) + x;
+		}
+
 		public static void LoadAssets(Engine engine, string assetName, string pathName, int rows, int cols)
 		{
 			SpriteAsset spriteAsset = new SpriteAsset(pathName);
-			int width = spriteAsset.Width/cols;
-			int height = spriteAsset.Height/rows;
+			int width = spriteAsset.Width / cols;
+			int height = spriteAsset.Height / rows;
 			for (int x = 0; x < cols; x++)
 			{
 				for (int y = 0; y < rows; y++)
 				{
-					engine.LoadAsset(assetName + "_" + x + "_" + y, new SpriteAsset(pathName, x*width, y*height, width, height));
+					engine.LoadAsset(assetName + "_" + x + "_" + y, new SpriteAsset(pathName, x * width, y * height, width, height));
 				}
 			}
 		}

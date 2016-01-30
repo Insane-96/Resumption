@@ -31,9 +31,8 @@ namespace GlobalGameJam2016.EnemyList
 			this.CurrentAnimation = "player_idle";
 		}
 
-		public override void Movement()
+		public virtual void Movement()
 		{
-			base.Movement();
 
 			if (move == CheckMovement.RightMovement)
 			{
@@ -61,9 +60,11 @@ namespace GlobalGameJam2016.EnemyList
 	class EnemyEarthEasy : EnemyEarth
 	{
 		Player player;
-		public EnemyEarthEasy(Engine engine, int width, int height) : base(width, height, true, "Enemy_Blob")
+		public EnemyEarthEasy(Engine engine, int width, int height, int posX, int posY) : base(width, height, true, "Enemy_Blob")
 		{
 			this.player = Game.player;
+			X = posX;
+			Y = posY;
 		}
 
 		public override void Start()
@@ -75,6 +76,7 @@ namespace GlobalGameJam2016.EnemyList
 		public override void Update()
 		{
 			base.Update();
+			Movement();
 		}
 
 		public override void Movement()
@@ -102,6 +104,7 @@ namespace GlobalGameJam2016.EnemyList
 		public override void Update()
 		{
 			base.Update();
+			Movement();
 		}
 
 		public override void Movement()

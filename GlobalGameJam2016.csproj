@@ -61,6 +61,8 @@
     <Compile Include="EnemyList\EnemyEarth.cs" />
     <Compile Include="EnemyList\EnemyWater.cs" />
     <Compile Include="Enviroment\Enviroment.cs" />
+    <Compile Include="Enviroment\EnviromentEarth.cs" />
+    <Compile Include="Enviroment\Tile.cs" />
     <Compile Include="Game.cs" />
     <Compile Include="KeyMap.cs" />
     <Compile Include="PlayerList\Player.cs" />

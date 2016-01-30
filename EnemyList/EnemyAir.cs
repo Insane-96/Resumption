@@ -30,10 +30,8 @@ namespace GlobalGameJam2016.EnemyList
             this.AddAnimation("player_idle", new List<string> { "playerDefault_0_0" }, 10);
             this.CurrentAnimation = "player_idle";
         }
-        public override void Movement()
+        public virtual void Movement()
         {
-
-            base.Movement();
 
 
             if (move == CheckMovement.RightMovement)

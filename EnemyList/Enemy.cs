@@ -36,8 +36,7 @@ namespace GlobalGameJam2016.EnemyList
             if (Health == 0)
                 this.Destroy();
         }
-
-        public virtual void Movement() { }
+		
 
     }
 }

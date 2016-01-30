@@ -7,14 +7,14 @@ using Aiv.Engine;
 
 namespace GlobalGameJam2016.Enviroment
 {
-	class Enviroment:GameObject
+	class Enviroment : SpriteObject
 	{
-        public static float gravity;
-		public Enviroment()
+		public static float gravity;
+		public Enviroment(int width, int height) : base(width, height)
 		{
-            gravity = 10;
+			gravity = 10;
 		}
-        
+
 		public override void Start()
 		{
 			base.Start();
