@@ -23,23 +23,24 @@ namespace GlobalGameJam2016
 			Asset.BasePath = "../../assets/";
 
 			Utils.LoadAssets(engine, "playerDefault", "playerDefault.png", 1, 1);
-			player = new PlayerEarth(64, 96, true, "playerDefault");
+			player = new PlayerEarth(60, 80, true, "playerDefault");
 
 			Utils.LoadAssets(engine, "background", "background.png", 1, 1);
 			enviromentEarth = new EnviromentEarth(1280, 720);
 
-			//         enemyAir = new EnemyAirEasy(engine, 64, 96);
-
-			EnemyEarthEasy[] enemyEarths = new EnemyEarthEasy[Utils.Randomize(30, 31)];
+			EnemyEarth[] enemyEarths = new EnemyEarth[Utils.Randomize(3, 7)];
 			for (int i = 0; i < enemyEarths.Length; i++)
 			{
 				int rX, rY;
 				do
 				{
-					rX = Utils.Randomize(1, 14);
-					rY = Utils.Randomize(1, 30);
+					rX = Utils.Randomize(1, 15);
+					rY = Utils.Randomize(1, 32);
 				} while (enviromentEarth.tiles[Utils.GetPos(rX, rY, 14)].tileType != TileType.None);
-				enemyEarths[i] = new EnemyEarthEasy(engine, 64, 40, rX * 96 - 32, rY * 96);
+				if (Utils.Randomize(0, 100) < 25)
+					enemyEarths[i] = new EnemyEarthMedium(engine, rX * 80, rY * 80);
+				else
+					enemyEarths[i] = new EnemyEarthMedium(engine, rX * 80, rY * 80);
 			}
 
 			Utils.LoadAssets(engine, "background", "background.png", 1, 1);
@@ -51,7 +52,6 @@ namespace GlobalGameJam2016
 #if DEBUG
 			engine.debugCollisions = true;
 #endif
-
 			engine.SpawnObject("player", player);
 			//engine.SpawnObject("enemy", enemy);
 			for (int i = 0; i < enviromentEarth.tiles.Length; i++)

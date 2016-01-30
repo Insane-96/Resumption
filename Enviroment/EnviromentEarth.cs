@@ -10,35 +10,36 @@ namespace GlobalGameJam2016.Enviroment
 	class EnviromentEarth : Enviroment
 	{
 		public Tile[] tiles;
+
 		public EnviromentEarth(int width, int height) : base(width, height)
 		{
-			tiles = new Tile[14 * 30];
-			for (int x = 0; x < 14; x++)
+			tiles = new Tile[16 * 32];
+			for (int x = 0; x < 16; x++)
 			{
-				for (int y = 0; y < 30; y++)
+				for (int y = 0; y < 32; y++)
 				{
-					if (x == 0 || x == 13)
+					if (x == 0 || x == 15)
 					{
-						tiles[Utils.GetPos(x, y, 14)] = new Tile(96, 96, x * 96 - 32, y * 96, TileType.UndestrWall, Utils.GetPos(x, y, 14));
+						tiles[Utils.GetPos(x, y, 16)] = new Tile(80, 80, x * 80, y * 80, TileType.UndestrWall, Utils.GetPos(x, y, 16));
 					}
 					else if (y == 0)
 					{
-						tiles[Utils.GetPos(x, y, 14)] = new Tile(96, 96, x * 96 - 32, y * 96, TileType.None, Utils.GetPos(x, y, 14));
+						tiles[Utils.GetPos(x, y, 16)] = new Tile(80, 80, x * 80, y * 80, TileType.None, Utils.GetPos(x, y, 16));
 					}
 					else
 					{
 						int r = Utils.Randomize(0, 10);
 						if (r < 1)
 						{
-							tiles[Utils.GetPos(x, y, 14)] = new Tile(96, 96, x * 96 - 32, y * 96, TileType.UndestrWall, Utils.GetPos(x, y, 14));
+							tiles[Utils.GetPos(x, y, 16)] = new Tile(80, 80, x * 80, y * 80, TileType.UndestrWall, Utils.GetPos(x, y, 16));
 						}
 						else if (r < 3)
 						{
-							tiles[Utils.GetPos(x, y, 14)] = new Tile(96, 96, x * 96 - 32, y * 96, TileType.None, Utils.GetPos(x, y, 14));
+							tiles[Utils.GetPos(x, y, 16)] = new Tile(80, 80, x * 80, y * 80, TileType.None, Utils.GetPos(x, y, 16));
 						}
 						else
 						{
-							tiles[Utils.GetPos(x, y, 14)] = new Tile(96, 96, x * 96 - 32, y * 96, TileType.DestrWall, Utils.GetPos(x, y, 14));
+							tiles[Utils.GetPos(x, y, 16)] = new Tile(80, 80, x * 80, y * 80, TileType.DestrWall, Utils.GetPos(x, y, 16));
 						}
 					}
 				}

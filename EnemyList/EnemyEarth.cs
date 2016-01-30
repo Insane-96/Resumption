@@ -11,7 +11,7 @@ namespace GlobalGameJam2016.EnemyList
 	class EnemyEarth : Enemy
 	{
 		public CheckMovement move;
-		public EnemyEarth(int width, int height, bool isEasy, string hitBoxName, int posX,int posY) : base(width, height, isEasy,posX,posY, hitBoxName)
+		public EnemyEarth(int width, int height, bool isEasy, string hitBoxName, int posX, int posY) : base(width, height, isEasy, posX, posY, hitBoxName)
 		{
 			move = CheckMovement.RightMovement;
 			if (isEasy)
@@ -33,10 +33,10 @@ namespace GlobalGameJam2016.EnemyList
 
 		public virtual void Movement()
 		{
-            float lastY;
+			float lastY;
 			if (move == CheckMovement.RightMovement)
 			{
-                
+
 				X += Speed * Engine.DeltaTime;
 
 				if (HasCollisions())
@@ -50,12 +50,12 @@ namespace GlobalGameJam2016.EnemyList
 				if (HasCollisions())
 					move = CheckMovement.RightMovement;
 			}
-            lastY = Y;
-            Y += 100 * Engine.DeltaTime;
-            if (CheckCollisions().Count > 0)
-            {
-                Y = lastY;
-            }
+			lastY = Y;
+			Y += 100 * Engine.DeltaTime;
+			if (CheckCollisions().Count > 0)
+			{
+				Y = lastY;
+			}
 		}
 		public override void Update()
 		{
@@ -70,7 +70,7 @@ namespace GlobalGameJam2016.EnemyList
 		public EnemyEarthEasy(Engine engine, int posX, int posY) : base(60, 40, true, "Enemy_Blob", posX, posY)
 		{
 			this.player = Game.player;
-			
+
 		}
 
 		public override void Start()
@@ -96,7 +96,7 @@ namespace GlobalGameJam2016.EnemyList
 	{
 		Player player;
 
-		public EnemyEarthMedium(Engine engine,int posX,int posY) : base(60, 80, false, "Enemy_Mole", posX, posY)
+		public EnemyEarthMedium(Engine engine, int posX, int posY) : base(60, 80, false, "Enemy_Mole", posX, posY)
 		{
 			this.player = Game.player;
 		}
@@ -112,14 +112,14 @@ namespace GlobalGameJam2016.EnemyList
 			base.Update();
 			Movement();
 
-            foreach (var obj in CheckCollisions())
-            {
-                if(obj.HitBox == "Enemy_Coll")
-                {
-                    Tile other = (Tile)obj.Other;
-                    Game.enviromentEarth.tiles[Utils.GetPos((int)other.X,(int)other.Y, 16)].tileType = TileType.None;
-                }
-            }
+			foreach (var obj in CheckCollisions())
+			{
+				if (obj.OtherHitBox.StartsWith("wall"))
+				{
+					Tile otherTile = (Tile)obj.Other;
+					Game.enviromentEarth.tiles[Utils.GetPos((int)otherTile.X / 80, (int)otherTile.Y / 80, 16)].tileType = TileType.None;
+				}
+			}
 		}
 
 		public override void Movement()
@@ -133,7 +133,7 @@ namespace GlobalGameJam2016.EnemyList
 				if (player.X < this.X)
 					move = CheckMovement.LeftMovement;
 			}
-			
+
 		}
 	}
 }
