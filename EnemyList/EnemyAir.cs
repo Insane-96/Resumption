@@ -11,7 +11,7 @@ namespace GlobalGameJam2016.EnemyList
     {
 
         public CheckMovement move;
-        public EnemyAir(int width, int height, bool isEasy, string hitBoxName, int posX, int posY) : base(width, height, isEasy,posX,posY, hitBoxName)
+        public EnemyAir(int width, int height, bool isEasy, string hitBoxName, int posX, int posY) : base(width, height, isEasy, posX, posY, hitBoxName)
         {
             move = CheckMovement.RightMovement;
             if (isEasy)
@@ -62,9 +62,9 @@ namespace GlobalGameJam2016.EnemyList
     class EnemyAirEasy : EnemyAir
     {
         Player player;
-        public EnemyAirEasy(Engine engine,int posX,int posY) : base(60, 40, true, "Enemy_", posX,posY)
+        public EnemyAirEasy(Engine engine, int posX, int posY) : base(60, 40, true, "Enemy_", posX, posY)
         {
-            this.player = Game.player;
+            this.player = Game.players[0];
         }
 
         public override void Start()
@@ -103,7 +103,7 @@ namespace GlobalGameJam2016.EnemyList
 
         public EnemyAirMedium(Engine engine, int posX, int posY) : base(60, 80, false, "Enemy_", posX, posY)
         {
-            this.player = Game.player;
+            this.player = Game.players[0];
             // Utils.LoadAssets(engine,);
         }
 

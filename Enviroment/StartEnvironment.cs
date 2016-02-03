@@ -6,19 +6,19 @@ using System.Threading.Tasks;
 using Aiv.Engine;
 using Aiv.Fast2D;
 using OpenTK;
+using Aiv.Vorbis;
+using NVorbis;
 
 
 namespace GlobalGameJam2016.Enviroment
 {
-    class StartEnvironment: Enviroment
+    class StartEnvironment : Enviroment
     {
         Player[] player;
         int selected;
         bool select;
 
-        
-        
-        public StartEnvironment(int width, int height):base(width,height)
+        public StartEnvironment(int width, int height) : base(width, height)
         {
             gravity = 0;
 
@@ -29,7 +29,7 @@ namespace GlobalGameJam2016.Enviroment
             var baseSprite = (SpriteAsset)Engine.GetAsset("startHub_0_0");
             CurrentSprite = baseSprite;
             AudioAsset startLevel = new AudioAsset("StartMenu.ogg");
-            AudioSource.Play(startLevel.Clip,true);
+            AudioSource.Play(startLevel.Clip, true);
         }
         public override void Update()
         {
@@ -39,36 +39,36 @@ namespace GlobalGameJam2016.Enviroment
         }
         public void Selection()
         {
-            if(Engine.IsKeyDown(KeyCode.W))
+            if (Engine.IsKeyDown(KeyCode.W) && !select)
             {
                 ResetVector();
-                Game.player.Scale = new Vector2(1.5f, 1.5f);
+                Game.players[0].Scale = new Vector2(1.5f, 1.5f);
                 selected = 0;
             }
-            else if (Engine.IsKeyDown(KeyCode.D))
+            else if (Engine.IsKeyDown(KeyCode.D) && !select)
             {
                 ResetVector();
-                Game.player2.Scale = new Vector2(1.5f, 1.5f);
+                Game.players[1].Scale = new Vector2(1.5f, 1.5f);
                 selected = 1;
             }
-            else if (Engine.IsKeyDown(KeyCode.S))
+            else if (Engine.IsKeyDown(KeyCode.S) && !select)
             {
                 ResetVector();
-                Game.player3.Scale = new Vector2(1.5f, 1.5f);
+                Game.players[2].Scale = new Vector2(1.5f, 1.5f);
                 selected = 2;
 
             }
-            else if (Engine.IsKeyDown(KeyCode.A))
+            else if (Engine.IsKeyDown(KeyCode.A) && !select)
             {
                 ResetVector();
-                Game.player4.Scale = new Vector2(1.5f, 1.5f);
+                Game.players[3].Scale = new Vector2(1.5f, 1.5f);
                 selected = 3;
             }
             if (Engine.IsKeyDown(KeyCode.E))
             {
                 select = true;
             }
-            
+
         }
         public void Movement()
         {
@@ -76,35 +76,58 @@ namespace GlobalGameJam2016.Enviroment
             {
                 if (selected == 0)
                 {
-                    Game.player.Y -= 100 * Engine.DeltaTime;
-                    Game.player.ChangeAnimation();
+                    Game.players[0].Y -= Engine.Height / 10 * Engine.DeltaTime;
+                    Game.players[0].ChangeAnimation("walkUp");
+                    if (Game.players[0].Y < 0 - Game.players[0].Height) { 
+                        Game.players[0].Scale = new Vector2(1f, 1f);
+                        Game.players[0].currentEnviroment = EnviromentType.AirEnviroment;
+                        Game.LoadEnviroment(new EnviromentAir(1280, 720));
+                    }
                 }
                 else if (selected == 1)
                 {
-                    Game.player2.X += 100 * Engine.DeltaTime;
-                    Game.player2.ChangeAnimation();
-                }
+                    Game.players[1].X += Engine.Width / 10 * Engine.DeltaTime;
+                    Game.players[1].ChangeAnimation("walkUp");
+					if (Game.players[1].X > Engine.Width)
+					{
+						Game.players[1].currentEnviroment = EnviromentType.FireEnviroment;
+						Game.players[1].Scale = new Vector2(1f, 1f);
+						Game.LoadEnviroment(new EnviromentFire(1280, 720));
+					}
+				}
                 else if (selected == 2)
                 {
-                    Game.player3.Y += 100 * Engine.DeltaTime;
-                    Game.player3.ChangeAnimation();
+                    Game.players[2].Y += Engine.Height / 10 * Engine.DeltaTime;
+                    Game.players[2].ChangeAnimation("walkUp");
+                    if (Game.players[2].Y > Engine.Height)
+                    {
+                        Game.players[2].Scale = new Vector2(1f, 1f);
+                        Game.players[2].currentEnviroment = EnviromentType.EarthEnviroment;
+                        Game.LoadEnviroment(new EnviromentEarth(1280, 720));
+                    }
                 }
                 else if (selected == 3)
                 {
-                    Game.player4.X -= 100 * Engine.DeltaTime;
-                    Game.player4.ChangeAnimation();
-                }
+                    Game.players[3].X -= Engine.Width / 10 * Engine.DeltaTime;
+                    Game.players[3].ChangeAnimation("walkUp");
+	                if (Game.players[3].X < 0)
+	                {
+                        Game.players[3].currentEnviroment = EnviromentType.WaterEnviroment;
+						Game.players[3].Scale = new Vector2(1f, 1f);
+						Game.LoadEnviroment(new EnviromentWater(1280, 720));
+					}
+				}
+
             }
-            
 
         }
         public void ResetVector()
         {
-            Game.player.Scale = new Vector2(1f, 1f);
-            Game.player2.Scale = new Vector2(1f, 1f);
-            Game.player3.Scale = new Vector2(1f, 1f);
-            Game.player4.Scale = new Vector2(1f, 1f);
+            Game.players[0].Scale = new Vector2(1f, 1f);
+            Game.players[1].Scale = new Vector2(1f, 1f);
+            Game.players[2].Scale = new Vector2(1f, 1f);
+            Game.players[3].Scale = new Vector2(1f, 1f);
         }
-
     }
 }
+

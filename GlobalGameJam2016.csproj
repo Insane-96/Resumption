@@ -37,8 +37,9 @@
     <Reference Include="aiv-fast2d">
       <HintPath>..\aivengine-master\aivengine\bin\Debug\aiv-fast2d.dll</HintPath>
     </Reference>
-    <Reference Include="aiv-vorbis">
-      <HintPath>..\aivengine-master\aivengine\bin\Debug\aiv-vorbis.dll</HintPath>
+    <Reference Include="aiv-vorbis, Version=1.0.5864.22892, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\Alberto\Desktop\aiv-vorbis-master\aiv-vorbis\bin\Debug\aiv-vorbis.dll</HintPath>
     </Reference>
     <Reference Include="aivengine">
       <HintPath>..\aivengine-master\aivengine\bin\Debug\aivengine.dll</HintPath>
@@ -65,14 +66,20 @@
     <Compile Include="EnemyList\EnemyFire.cs" />
     <Compile Include="EnemyList\EnemyWater.cs" />
     <Compile Include="Enviroment\Enviroment.cs" />
+    <Compile Include="Enviroment\EnviromentAir.cs" />
     <Compile Include="Enviroment\EnviromentEarth.cs" />
     <Compile Include="Enviroment\EnviromentFire.cs" />
+    <Compile Include="Enviroment\EnviromentWater.cs" />
+    <Compile Include="Enviroment\Platform.cs" />
+    <Compile Include="Enviroment\StartEnvironment.cs" />
     <Compile Include="Enviroment\Tile.cs" />
     <Compile Include="Game.cs" />
     <Compile Include="KeyMap.cs" />
     <Compile Include="PlayerList\Player.cs" />
+    <Compile Include="PlayerList\PlayerAir.cs" />
     <Compile Include="PlayerList\PlayerEarth.cs" />
     <Compile Include="PlayerList\PlayerFire.cs" />
+    <Compile Include="PlayerList\PlayerWater.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">

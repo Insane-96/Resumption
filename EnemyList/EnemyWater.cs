@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Aiv.Engine;
+using OpenTK;
 
 namespace GlobalGameJam2016.EnemyList
 {
@@ -70,7 +71,7 @@ namespace GlobalGameJam2016.EnemyList
         Player player;
         public EnemyWaterEasy(Engine engine, int posX, int posY) : base(60, 40, true, "Enemy_", posX, posY) // change name
         {
-            this.player = Game.player;
+            this.player = Game.players[3];
             // Utils.LoadAssets(engine,);
         }
 
@@ -78,18 +79,38 @@ namespace GlobalGameJam2016.EnemyList
         {
             base.Start();
             SpriteAsset sprite = new SpriteAsset("playerDefault.png");
-        }
+			this.AddAnimation("blob_idle", new List<string> { "blob_0_0" }, 10);
+
+			this.CurrentAnimation = "blob_idle";
+		}
 
         public override void Update()
         {
             base.Update();
-        }
+			Movement();
 
-        public override void Movement()
+		}
+
+		public override void Movement()
         {
             base.Movement();
+			Vector2 playersPosition = new Vector2(Game.players[3].X, Game.players[3].Y);
+			Vector2 enemyMediumPosition = new Vector2(X, Y);
+			Vector2 distance = playersPosition - enemyMediumPosition;
+			/* distance.X = Game.players[3].X - X;
+             if(distance.X < 0)
+             {
+                 distance.X = X - Game.players[3].X;
+             }
+             distance.Y = Game.players[3].Y - Y;
+             if (distance.Y < 0)
+             {
+                 distance.Y = Y - Game.players[3].Y;
+             }*/
 
-        }
+			X += (distance.X * DeltaTime) / 2;
+			Y += (distance.Y * DeltaTime) / 2;
+		}
     }
 
     class EnemyWaterMedium : EnemyWater
@@ -98,36 +119,48 @@ namespace GlobalGameJam2016.EnemyList
 
         public EnemyWaterMedium(Engine engine, int posX, int posY) : base(60, 80, false, "Enemy_", posX, posY)
         {
-            this.player = Game.player;
+            this.player = Game.players[3];
             // Utils.LoadAssets(engine,);
         }
 
-        public override void Start()
-        {
-            //create animation
-            base.Start();
-        }
+		public override void Start()
+		{
+			//create animation
+			base.Start();
+			this.AddAnimation("blob_idle", new List<string> { "blob_0_0" }, 10);
 
-        public override void Update()
-        {
-            base.Update();
-        }
+			this.CurrentAnimation = "blob_idle";
+		}
 
-        public override void Movement()
-        {
-            base.Movement();
-            if (this.Y == player.Y)
-            {
-                if (player.X > this.X)
-                    move = CheckMovement.RightMovement;
+		public override void Update()
+		{
+			base.Update();
+			Movement();
+		}
 
-                if (player.X < this.X)
-                    move = CheckMovement.LeftMovement;
-            }
-            if (HasCollisions())
-            {
-                // destroy block
-            }
-        }
-    }
+		public override void Movement()
+		{
+			base.Movement();
+			Vector2 playersPosition = new Vector2(Game.players[3].X, Game.players[3].Y);
+			Vector2 enemyMediumPosition = new Vector2(X, Y);
+			Vector2 distance = playersPosition - enemyMediumPosition;
+			/* distance.X = Game.players[3].X - X;
+			 if(distance.X < 0)
+			 {
+				 distance.X = X - Game.players[3].X;
+			 }
+			 distance.Y = Game.players[3].Y - Y;
+			 if (distance.Y < 0)
+			 {
+				 distance.Y = Y - Game.players[3].Y;
+			 }*/
+
+			X += distance.X * DeltaTime;
+			Y += distance.Y * DeltaTime;
+			if (HasCollisions())
+			{
+				// destroy block
+			}
+		}
+	}
 }

@@ -1,16 +1,17 @@
-﻿    using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Aiv.Engine;
+using Aiv.Vorbis;
+using NVorbis;
+using OpenTK;
 
 namespace GlobalGameJam2016.Enviroment
 {
 	class EnviromentEarth : Enviroment
 	{
-		public Tile[] tiles;
-
 		public EnviromentEarth(int width, int height) : base(width, height)
 		{
 			tiles = new Tile[16 * 32];
@@ -49,12 +50,22 @@ namespace GlobalGameJam2016.Enviroment
 		public override void Start()
 		{
 			base.Start();
-			CurrentSprite = (SpriteAsset)Engine.GetAsset("background_0_0");
+			CurrentSprite = (SpriteAsset)Engine.GetAsset("backgroundEarth_0_0");
+			//AudioAsset startLevel = new AudioAsset("EarthLevel.ogg");
+			//AudioSource.Play(startLevel.Clip, true);
 		}
 
 		public override void Update()
 		{
 			base.Update();
+
+		}
+	}
+
+	class EnviromentEarthBoss : Enviroment
+	{
+		public EnviromentEarthBoss(int width, int height) : base(width, height)
+		{
 
 		}
 	}

@@ -68,7 +68,7 @@ namespace GlobalGameJam2016.EnemyList
 		Player player;
 		public EnemyEarthEasy(Engine engine, int posX, int posY) : base(60, 40, true, "Enemy_Blob", posX, posY)
 		{
-			this.player = Game.player;
+			this.player = Game.players[2];
 
 		}
 
@@ -91,7 +91,7 @@ namespace GlobalGameJam2016.EnemyList
 
 		public EnemyEarthMedium(Engine engine, int posX, int posY) : base(60, 80, false, "Enemy_Mole", posX, posY)
 		{
-			this.player = Game.player;
+			this.player = Game.players[2];
 		}
 
 		public override void Start()
@@ -110,7 +110,7 @@ namespace GlobalGameJam2016.EnemyList
 				if (obj.OtherHitBox.StartsWith("Wall"))
 				{
 					Tile otherTile = (Tile)obj.Other;
-					Game.enviromentEarth.tiles[Utils.GetPos((int)(otherTile.X + this.Width / 2) / 80, (int)(otherTile.X + this.Width / 2) / 80, 16)].tileType = TileType.None;
+					//Game.enviromentEarth.tiles[Utils.GetPos((int)(otherTile.X + this.Width / 2) / 80, (int)(otherTile.X + this.Width / 2) / 80, 16)].tileType = TileType.None;
 				}
 			}
 		}

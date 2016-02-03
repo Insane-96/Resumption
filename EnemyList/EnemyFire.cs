@@ -63,7 +63,7 @@ namespace GlobalGameJam2016.EnemyList
         Player player;
         public EnemyFireEasy(int width, int height, int X, int Y, bool isEasy, string hitBoxName) : base(width, height,X,Y, isEasy ,"Enemy_Blob")// change name
         {
-            this.player = Game.player;
+            this.player = Game.players[1];
             // Utils.LoadAssets(engine,);
         }
 
@@ -91,7 +91,7 @@ namespace GlobalGameJam2016.EnemyList
 
         public EnemyFirerMedium(int width, int height, int X, int Y, bool isEasy, string hitBoxName) : base(width, height, X, Y, isEasy, "Enemy_Mole")
         {
-            this.player = Game.player;
+            this.player = Game.players[1];
             // Utils.LoadAssets(engine,);
         }
 

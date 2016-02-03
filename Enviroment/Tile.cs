@@ -12,6 +12,7 @@ namespace GlobalGameJam2016.Enviroment
 		None,
 		UndestrWall,
 		DestrWall,
+        Cloud
 	}
 
 	class Tile : SpriteObject
