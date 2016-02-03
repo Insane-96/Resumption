@@ -4,19 +4,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Aiv.Engine;
-using GlobalGameJam2016.Enviroment;
+using GlobalGameJam2016.EnvironmentList;
 
 namespace GlobalGameJam2016.PlayerList
 {
 	class PlayerFire : Player
 	{
 		public Bullet bullet;
-		private Enviroment.Enviroment enviroment;
+		private EnvironmentList.Enviroment enviroment;
 		public List<Bullet> bulletsShot;
 		public Bullet.bulletsDirection direction;
 		private bool isRight;
 
-		public PlayerFire(int width, int height, bool autoHitbox, string autoHitboxName, Enviroment.EnviromentType environment) : base(width, height, autoHitbox, autoHitboxName, environment)
+		public PlayerFire(int width, int height, bool autoHitbox, string autoHitboxName, EnviromentType environment) : base(width, height, autoHitbox, autoHitboxName, environment)
 		{
 			// bulletsShot = new List<Bullet>();
 			isRight = true;

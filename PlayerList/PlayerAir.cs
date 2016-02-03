@@ -4,15 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Aiv.Engine;
-using GlobalGameJam2016.Enviroment;
+using GlobalGameJam2016.EnvironmentList;
 
 namespace GlobalGameJam2016.PlayerList
 {
     class PlayerAir : Player
     {
-        private Enviroment.Enviroment enviroment;
+        private EnvironmentList.Enviroment enviroment;
         private float accelleration;
-        public PlayerAir(int width, int height, bool autoHitbox, string autoHitboxName, Enviroment.EnviromentType environment) : base(width, height, autoHitbox, autoHitboxName, environment)
+        public PlayerAir(int width, int height, bool autoHitbox, string autoHitboxName, EnviromentType environment) : base(width, height, autoHitbox, autoHitboxName, environment)
         {
         }
 

@@ -1,15 +1,10 @@
 ﻿using Aiv.Engine;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace GlobalGameJam2016.Enviroment
+namespace GlobalGameJam2016.EnvironmentList
 {
-	class EnviromentFire : Enviroment
+	class EnviromentEarth : Enviroment
 	{
-		public EnviromentFire(int width, int height) : base(width, height)
+		public EnviromentEarth(int width, int height) : base(width, height)
 		{
 			tiles = new Tile[16 * 32];
 			for (int x = 0; x < 16; x++)
@@ -20,7 +15,7 @@ namespace GlobalGameJam2016.Enviroment
 					{
 						tiles[Utils.GetPos(x, y, 16)] = new Tile(80, 80, x * 80, y * 80, TileType.UndestrWall, Utils.GetPos(x, y, 16));
 					}
-					else if (y == 31)
+					else if (y == 0)
 					{
 						tiles[Utils.GetPos(x, y, 16)] = new Tile(80, 80, x * 80, y * 80, TileType.None, Utils.GetPos(x, y, 16));
 					}
@@ -47,11 +42,23 @@ namespace GlobalGameJam2016.Enviroment
 		public override void Start()
 		{
 			base.Start();
-			CurrentSprite = (SpriteAsset)Engine.GetAsset("backgroundFire_0_0");
+			CurrentSprite = (SpriteAsset)Engine.GetAsset("backgroundEarth_0_0");
+			//AudioAsset startLevel = new AudioAsset("EarthLevel.ogg");
+			//AudioSource.Play(startLevel.Clip, true);
 		}
+
 		public override void Update()
 		{
 			base.Update();
+
+		}
+	}
+
+	class EnviromentEarthBoss : EnvironmentList.Enviroment
+	{
+		public EnviromentEarthBoss(int width, int height) : base(width, height)
+		{
+
 		}
 	}
 }

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Aiv.Engine;
-using GlobalGameJam2016.Enviroment;
+using GlobalGameJam2016.EnvironmentList;
 
 namespace GlobalGameJam2016.EnemyList
 {

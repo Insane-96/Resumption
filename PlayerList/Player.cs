@@ -5,7 +5,7 @@ using System.Security.Policy;
 using Aiv.Engine;
 using Aiv.Fast2D;
 using OpenTK;
-using GlobalGameJam2016.Enviroment;
+using GlobalGameJam2016.EnvironmentList;
 
 namespace GlobalGameJam2016
 {
@@ -26,7 +26,6 @@ namespace GlobalGameJam2016
             energy = 100;
             movSpeed = 100;
             gravitySpeed = 0;
-            //this.Pivot = new Vector2(width / 2, 0);
             keyMap = new KeyMap(KeyCode.W, KeyCode.S, KeyCode.A, KeyCode.D, KeyCode.E, KeyCode.Space);
             currentEnviroment = environment;
         }

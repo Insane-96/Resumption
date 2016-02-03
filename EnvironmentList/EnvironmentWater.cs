@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Aiv.Engine;
+﻿using Aiv.Engine;
 
-namespace GlobalGameJam2016.Enviroment
+namespace GlobalGameJam2016.EnvironmentList
 {
     class EnviromentWater:Enviroment 
     {

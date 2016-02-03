@@ -1,16 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Aiv.Engine;
+﻿using Aiv.Engine;
 using Aiv.Fast2D;
 using OpenTK;
-using Aiv.Vorbis;
-using NVorbis;
 
-
-namespace GlobalGameJam2016.Enviroment
+namespace GlobalGameJam2016.EnvironmentList
 {
     class StartEnvironment : Enviroment
     {

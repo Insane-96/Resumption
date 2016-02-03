@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Aiv.Engine;
-using GlobalGameJam2016.Enviroment;
+using GlobalGameJam2016.EnvironmentList;
 
 namespace GlobalGameJam2016.PlayerList
 {
@@ -14,7 +14,7 @@ namespace GlobalGameJam2016.PlayerList
 		public List<Bullet> bulletsShot;
 		public Bullet.bulletsDirection direction;
 		private bool isRight;
-		private Enviroment.Enviroment enviroment;
+		private EnvironmentList.Enviroment enviroment;
 		public PlayerWater(int width, int height, bool autoHitbox, string autoHitboxName, EnviromentType Enviroment)
 			: base(width, height, autoHitbox, autoHitboxName, Enviroment)
 		{

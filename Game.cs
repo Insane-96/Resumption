@@ -3,7 +3,7 @@ using Aiv.Engine;
 using OpenTK;
 using Aiv.Vorbis;
 using GlobalGameJam2016.EnemyList;
-using GlobalGameJam2016.Enviroment;
+using GlobalGameJam2016.EnvironmentList;
 using GlobalGameJam2016.PlayerList;
 
 namespace GlobalGameJam2016
@@ -11,7 +11,7 @@ namespace GlobalGameJam2016
 	static class Game
 	{
 		private static Engine engine;
-		public static Enviroment.Enviroment currentEnvironment;
+		public static EnvironmentList.Enviroment currentEnvironment;
 		public static Enemy[] enemies;
 		public static Player[] players;
 		//public static EnemyAirEasy enemyAir;
@@ -103,7 +103,7 @@ namespace GlobalGameJam2016
 			engine.Run();
 		}
 
-		public static void LoadEnviroment(Enviroment.Enviroment enviroment)
+		public static void LoadEnviroment(EnvironmentList.Enviroment enviroment)
 		{
 			engine.RemoveObject(currentEnvironment);
 			for (int i = 0; i < players.Length; i++)

@@ -1,19 +1,19 @@
 ﻿using System;
 using System.Threading.Tasks;
 using Aiv.Fast2D;
-using GlobalGameJam2016.Enviroment;
 using OpenTK;
 using OpenTK.Input;
 using Aiv.Engine;
 using System.Collections;
 using System.Collections.Generic;
+using GlobalGameJam2016.EnvironmentList;
 
 namespace GlobalGameJam2016.PlayerList
 {
     class PlayerEarth : Player
     {
         private bool isRight;
-        public PlayerEarth(int width, int height, bool autoHitbox, string autoHitboxName, Enviroment.EnviromentType environment) : base(width, height, autoHitbox, autoHitboxName, environment)
+        public PlayerEarth(int width, int height, bool autoHitbox, string autoHitboxName, EnviromentType environment) : base(width, height, autoHitbox, autoHitboxName, environment)
         {
             isRight = true;
             X = 1280 / 2f;
